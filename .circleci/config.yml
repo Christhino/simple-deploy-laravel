@@ -48,18 +48,12 @@ jobs:
       - setup_remote_docker:
           version: 20.10.14
           docker_layer_caching: true
-      # - run:
-      #     name: "Build and push Docker image"
-      #     command: |
-      #       docker build -t laravelapidocker.azurecr.io/laravelapidocker:latest .
-      #       echo $DOCKER_PASS | docker login laravelapidocker.azurecr.io -u $DOCKER_USER --password-stdin
-      #       docker push laravelapidocker.azurecr.io/laravelapidocker:latest
-        - run:
-            name: "Build and push Docker image"
-            command: |
-              docker build -t laravelapidocker.azurecr.io/laravelapidocker:latest .
-              mkdir -p ~/.docker && echo '{"auths":{"laravelapidocker.azurecr.io":{"username":"'$DOCKER_USER'","password":"'$DOCKER_PASS'"}}}' > ~/.docker/config.json
-              docker push laravelapidocker.azurecr.io/laravelapidocker:latest
+      - run:
+          name: "Build and push Docker image"
+          command: |
+            docker build -t laravelapidocker.azurecr.io/laravelapidocker:latest .
+            mkdir -p ~/.docker && echo '{"auths":{"laravelapidocker.azurecr.io":{"username":"'$DOCKER_USER'","password":"'$DOCKER_PASS'"}}}' > ~/.docker/config.json
+            docker push laravelapidocker.azurecr.io/laravelapidocker:latest
 
 workflows:
   test-and-deploy:
