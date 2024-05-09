@@ -22,13 +22,13 @@ class ExchangeRateHelperTest extends TestCase
 
     public function supportedExchangeRates(): array
     {
-        return [["EUR"], ["GBP"], ["NGN"], ["USD"],["MGA"]];
+        return [["EUR"], ["GBP"], ["NGN"], ["USD"]];
     }
 
     public function test_that_unsupported_currency_throws_exception(): void
     {
         $this->expectException(InvalidArgumentException::class);
-        ExchangeRateHelper::getRatesForCurrency('MGA');
+        ExchangeRateHelper::getRatesForCurrency('YEN');
     }
 
     public function test_that_all_rates_are_returned_correctly(): void
