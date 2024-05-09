@@ -8051,7 +8051,7 @@
             ],
             "time": "2024-04-28T10:28:08+00:00"
         },
-        {
+    {
             "name": "theseer/tokenizer",
             "version": "1.2.3",
             "source": {
