@@ -5,7 +5,7 @@ jobs:
   build-and-test:
     description: Setup laravel application and run tests
     docker:
-      - image: cimg/php:8.0-browsers
+      - image: cimg/php:8.1
 
     steps:
       - checkout
